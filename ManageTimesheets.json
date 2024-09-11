@@ -1,0 +1,23 @@
+{
+    "title": "Manage Timesheets",
+    "type": "object",
+    "properties": {
+      "employerId": { "type": "string" },
+      "timesheets": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "timesheetId": { "type": "string" },
+            "consultantId": { "type": "string" },
+            "name": { "type": "string" },
+            "projectName": { "type": "string" },
+            "hoursSubmitted": { "type": "number" },
+            "status": { "type": "string" }
+          },
+          "required": ["timesheetId", "consultantId", "name", "projectName", "hoursSubmitted", "status"]
+        }
+      }
+    },
+    "required": ["employerId", "timesheets"]
+  }

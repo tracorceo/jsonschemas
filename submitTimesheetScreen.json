@@ -1,0 +1,83 @@
+{
+    "title": "Submit Timesheet",
+    "type": "object",
+    "properties": {
+      "employeeName": { "type": "string" },
+      "selectPlacement": { 
+        "type": "string", 
+        "description": "The role and company the employee is working for." 
+      },
+      "viewPlacementDetailsLink": { "type": "string", "format": "uri" },
+      "selectDates": {
+        "type": "object",
+        "properties": {
+          "fromDate": { "type": "string", "format": "date" },
+          "toDate": { "type": "string", "format": "date" }
+        },
+        "required": ["fromDate", "toDate"]
+      },
+      "comments": { 
+        "type": "string", 
+        "description": "Any additional information or notes from the employee." 
+      },
+      "attachments": {
+        "type": "object",
+        "properties": {
+          "attachmentName": { "type": "string" },
+          "attachmentLink": { "type": "string", "format": "uri" }
+        },
+        "description": "Files attached for additional context or evidence of work."
+      },
+      "totalHoursSummary": {
+        "type": "object",
+        "properties": {
+          "totalHours": { "type": "number", "description": "Total hours worked." },
+          "billableHours": { "type": "number", "description": "Total billable hours." },
+          "standardHours": { "type": "number", "description": "Standard time worked." }
+        }
+      },
+      "timesheetWeeks": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "weekNumber": { "type": "number" },
+            "days": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "date": { "type": "string", "format": "date" },
+                  "payClassification": { "type": "string", "description": "Classification of the pay (e.g., standard time, overtime)." },
+                  "hoursWorked": { "type": "number", "description": "Hours worked on the specific day." },
+                  "billableHours": { "type": "number", "description": "Billable hours on the specific day." },
+                  "totalHours": { "type": "number", "description": "Total hours on the specific day." },
+                  "comments": { "type": "string", "description": "Optional comments for each day." }
+                },
+                "required": ["date", "payClassification"]
+              }
+            }
+          }
+        }
+      },
+      "timesheetStatus": {
+        "type": "object",
+        "properties": {
+          "status": { 
+            "type": "string", 
+            "enum": ["Draft", "Submitted", "Approved", "Rejected"],
+            "description": "The status of the timesheet."
+          },
+          "lastActionDate": { "type": "string", "format": "date" },
+          "actions": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["Save", "Submit", "Clear", "Cancel"]
+            }
+          }
+        }
+      }
+    },
+    "required": ["employeeName", "selectPlacement", "selectDates", "timesheetWeeks", "totalHoursSummary", "timesheetStatus"]
+  }

@@ -1,0 +1,74 @@
+{
+    "title": "Employee Signup",
+    "type": "object",
+    "properties": {
+      "personalDetails": {
+        "type": "object",
+        "properties": {
+          "firstName": { "type": "string", "description": "First name of the employee" },
+          "lastName": { "type": "string", "description": "Last name of the employee" },
+          "dateOfBirth": { "type": "string", "format": "date", "description": "Date of birth of the employee" },
+          "gender": { 
+            "type": "string", 
+            "enum": ["Male", "Female", "Other"], 
+            "description": "Gender of the employee" 
+          }
+        },
+        "required": ["firstName", "lastName", "dateOfBirth"]
+      },
+      "contactDetails": {
+        "type": "object",
+        "properties": {
+          "email": { "type": "string", "format": "email", "description": "Employee's email address" },
+          "contactNumber": { "type": "string", "description": "Employee's contact phone number" },
+          "address": {
+            "type": "object",
+            "properties": {
+              "street": { "type": "string" },
+              "city": { "type": "string" },
+              "state": { "type": "string" },
+              "postalCode": { "type": "string" },
+              "country": { "type": "string" }
+            },
+            "required": ["street", "city", "state", "postalCode", "country"],
+            "description": "Employee's residential address"
+          }
+        },
+        "required": ["email", "contactNumber", "address"]
+      },
+      "employmentDetails": {
+        "type": "object",
+        "properties": {
+          "employeeId": { "type": "string", "description": "Unique employee ID assigned by the company" },
+          "jobTitle": { "type": "string", "description": "Employee's job title or role" },
+          "dateOfJoining": { "type": "string", "format": "date", "description": "Date the employee joined the company" }
+        },
+        "required": ["employeeId", "jobTitle", "dateOfJoining"]
+      },
+      "authenticationDetails": {
+        "type": "object",
+        "properties": {
+          "password": { 
+            "type": "string", 
+            "minLength": 8, 
+            "description": "Password for employee login (minimum 8 characters)" 
+          },
+          "confirmPassword": { 
+            "type": "string", 
+            "minLength": 8, 
+            "description": "Confirmation of the password (should match the password field)" 
+          },
+          "securityQuestion": { 
+            "type": "string", 
+            "description": "Security question for account recovery (e.g., 'What is your pet's name?')" 
+          },
+          "securityAnswer": { 
+            "type": "string", 
+            "description": "Answer to the security question" 
+          }
+        },
+        "required": ["password", "confirmPassword", "securityQuestion", "securityAnswer"]
+      }
+    },
+    "required": ["personalDetails", "contactDetails", "employmentDetails", "authenticationDetails"]
+  }

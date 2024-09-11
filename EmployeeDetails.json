@@ -1,0 +1,154 @@
+{
+    "title": "Employee Details",
+    "type": "object",
+    "properties": {
+      "generalDetails": {
+        "type": "object",
+        "properties": {
+          "firstName": { "type": "string" },
+          "middleName": { "type": "string" },
+          "lastName": { "type": "string" },
+          "jobTitle": { "type": "string" },
+          "userName": { "type": "string" },
+          "email": { "type": "string", "format": "email" },
+          "alternateEmail": { "type": "string", "format": "email" },
+          "contactNumber": { "type": "string" },
+          "gender": { "type": "string" },
+          "ethnicity": { "type": "string" },
+          "employeeID": { "type": "string" },
+          "dateOfJoining": { "type": "string", "format": "date" },
+          "location": { "type": "string" },
+          "category": { "type": "string" },
+          "classification": { "type": "string" },
+          "payrollID": { "type": "string" },
+          "holidayCalendar": { "type": "string" },
+          "workAuthorization": { "type": "string" },
+          "workerID": { "type": "string" },
+          "veteranStatus": { "type": "string" },
+          "maritalStatus": { "type": "string" },
+          "employeeStatus": { "type": "string" }
+        },
+        "required": ["firstName", "lastName", "email", "jobTitle", "dateOfJoining"]
+      },
+      "contactDetails": {
+        "type": "object",
+        "properties": {
+          "presentAddress": {
+            "type": "object",
+            "properties": {
+              "address": { "type": "string" },
+              "city": { "type": "string" },
+              "state": { "type": "string" },
+              "country": { "type": "string" },
+              "zipCode": { "type": "string" }
+            },
+            "required": ["address", "city", "state", "zipCode"]
+          },
+          "permanentAddress": {
+            "type": "object",
+            "properties": {
+              "address": { "type": "string" },
+              "city": { "type": "string" },
+              "state": { "type": "string" },
+              "country": { "type": "string" },
+              "zipCode": { "type": "string" }
+            },
+            "required": ["address", "city", "state", "zipCode"]
+          },
+          "emergencyContact": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "relation": { "type": "string" },
+              "contactNumber": { "type": "string" }
+            },
+            "required": ["name", "contactNumber"]
+          }
+        }
+      },
+      "educationDetails": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "education": { "type": "string" },
+            "fieldOfStudy": { "type": "string" },
+            "institute": { "type": "string" },
+            "gpaPercentage": { "type": "string" },
+            "startDate": { "type": "string", "format": "date" },
+            "endDate": { "type": "string", "format": "date" },
+            "documents": { "type": "string" }
+          }
+        }
+      },
+      "workAuthorization": {
+        "type": "object",
+        "properties": {
+          "documentType": { "type": "string" },
+          "documentNumber": { "type": "string" },
+          "documentStatus": { "type": "string" },
+          "dateIssued": { "type": "string", "format": "date" },
+          "validFrom": { "type": "string", "format": "date" },
+          "expiryDate": { "type": "string", "format": "date" },
+          "currentlyActive": { "type": "boolean" },
+          "documents": { "type": "string" }
+        }
+      },
+      "dependentsDetails": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "dependentName": { "type": "string" },
+            "relationship": { "type": "string" },
+            "dateOfBirth": { "type": "string", "format": "date" },
+            "dependentGender": { "type": "string" },
+            "visaType": { "type": "string" },
+            "ssn": { "type": "string" },
+            "attachmentName": { "type": "string" }
+          }
+        }
+      },
+      "employmentHistory": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "employerName": { "type": "string" },
+            "jobTitle": { "type": "string" },
+            "numberOfYears": { "type": "number" },
+            "fromDate": { "type": "string", "format": "date" },
+            "toDate": { "type": "string", "format": "date" }
+          }
+        }
+      },
+      "references": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "jobTitle": { "type": "string" },
+            "yearsAcquainted": { "type": "number" },
+            "contactNumber": { "type": "string" },
+            "email": { "type": "string", "format": "email" },
+            "city": { "type": "string" }
+          }
+        }
+      },
+      "timesheets": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "projectName": { "type": "string" },
+            "hoursWorked": { "type": "number" },
+            "fromDate": { "type": "string", "format": "date" },
+            "toDate": { "type": "string", "format": "date" },
+            "status": { "type": "string" }
+          }
+        }
+      }
+    },
+    "required": ["generalDetails", "contactDetails", "workAuthorization"]
+  }

@@ -1,0 +1,42 @@
+{
+    "title": "Employee List",
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "employerId": { 
+          "type": "string", 
+          "description": "Unique ID of the employer" 
+        },
+        "employeeDetails": {
+          "type": "object",
+          "properties": {
+            "firstName": { "type": "string" },
+            "lastName": { "type": "string" },
+            "employeeId": { "type": "string" },
+            "email": { "type": "string", "format": "email" },
+            "contactNumber": { "type": "string" }
+          },
+          "required": ["firstName", "lastName", "employeeId", "email", "contactNumber"]
+        },
+        "projectDetails": {
+          "type": "object",
+          "properties": {
+            "projectClient": { "type": "string", "description": "Name of the client or company for the current project" },
+            "projectExpiryDate": { "type": "string", "format": "date", "description": "Date when the project assignment ends" },
+            "location": { "type": "string", "description": "Location where the employee is working" }
+          },
+          "required": ["projectClient", "projectExpiryDate", "location"]
+        },
+        "visaDetails": {
+          "type": "object",
+          "properties": {
+            "visaType": { "type": "string", "description": "Type of visa the employee holds" },
+            "visaExpiryDate": { "type": "string", "format": "date", "description": "Date when the employee’s visa expires" }
+          },
+          "required": ["visaType", "visaExpiryDate"]
+        }
+      },
+      "required": ["employerId", "employeeDetails", "projectDetails", "visaDetails"]
+    }
+  }

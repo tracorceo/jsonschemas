@@ -1,0 +1,13 @@
+{
+    "title": "Profile Management",
+    "type": "object",
+    "properties": {
+      "consultantId": { "type": "string" },
+      "name": { "type": "string" },
+      "email": { "type": "string" },
+      "phone": { "type": "string" },
+      "skills": { "type": "string" },
+      "workExperience": { "type": "string" }
+    },
+    "required": ["consultantId", "name", "email", "phone", "skills", "workExperience"]
+  }

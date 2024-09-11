@@ -1,0 +1,10 @@
+{
+    "title": "Login Screen",
+    "type": "object",
+    "properties": {
+      "username": { "type": "string" },
+      "password": { "type": "string" },
+      "role": { "type": "string", "enum": ["Employer", "Consultant"] }
+    },
+    "required": ["username", "password", "role"]
+  }

@@ -1,0 +1,31 @@
+{
+    "title": "Employer Dashboard",
+    "type": "object",
+    "properties": {
+      "employerId": { "type": "string" },
+      "consultantSummary": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "consultantId": { "type": "string" },
+            "name": { "type": "string" },
+            "projectName": { "type": "string" },
+            "hoursWorked": { "type": "number" },
+            "status": { "type": "string" }
+          },
+          "required": ["consultantId", "name", "projectName", "hoursWorked", "status"]
+        }
+      },
+      "timesheetStatus": {
+        "type": "object",
+        "properties": {
+          "pending": { "type": "number" },
+          "approved": { "type": "number" }
+        }
+      },
+      "totalConsultants": { "type": "number" },
+      "activeProjects": { "type": "number" }
+    },
+    "required": ["employerId", "consultantSummary", "timesheetStatus", "totalConsultants", "activeProjects"]
+  }

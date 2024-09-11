@@ -1,0 +1,89 @@
+{
+    "title": "Employee Dashboard",
+    "type": "object",
+    "properties": {
+      "employeeInfo": {
+        "type": "object",
+        "properties": {
+          "fullName": { "type": "string" },
+          "jobTitle": { "type": "string" },
+          "employeeId": { "type": "string" },
+          "contactNumber": { "type": "string" },
+          "email": { "type": "string", "format": "email" },
+          "profilePicture": { "type": "string", "format": "uri" },
+          "aboutYourself": { "type": "string" }
+        },
+        "required": ["fullName", "jobTitle", "employeeId", "email"]
+      },
+      "timesheetInfo": {
+        "type": "object",
+        "properties": {
+          "timesheetStatus": { "type": "string" },
+          "timesheetDueDays": { "type": "number" },
+          "addTimesheetLink": { "type": "string", "format": "uri" }
+        }
+      },
+      "statusReport": {
+        "type": "string",
+        "default": "No status reports to submit"
+      },
+      "keyDates": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "type": { "type": "string" },
+            "status": { "type": "string" },
+            "approvedFrom": { "type": "string", "format": "date" },
+            "approvedUntil": { "type": "string", "format": "date" }
+          },
+          "required": ["type", "status", "approvedFrom", "approvedUntil"]
+        }
+      },
+      "additionalDashboardWidgets": {
+        "type": "object",
+        "properties": {
+          "upcomingTasks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "taskName": { "type": "string" },
+                "dueDate": { "type": "string", "format": "date" }
+              }
+            }
+          },
+          "recentActivities": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "activityName": { "type": "string" },
+                "activityDate": { "type": "string", "format": "date" }
+              }
+            }
+          },
+          "teamMembers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "teamMemberName": { "type": "string" },
+                "teamMemberRole": { "type": "string" },
+                "contactInfo": { "type": "string" }
+              }
+            }
+          },
+          "performanceStats": {
+            "type": "object",
+            "properties": {
+              "projectsCompleted": { "type": "number" },
+              "hoursWorked": { "type": "number" },
+              "performanceRating": { "type": "number", "minimum": 0, "maximum": 5 }
+            }
+          }
+        }
+      }
+    },
+    "required": ["employeeInfo", "timesheetInfo", "keyDates", "statusReport"]
+  }

@@ -1,0 +1,39 @@
+{
+    "title": "Employee Timesheet",
+    "type": "object",
+    "properties": {
+      "employeeName": { "type": "string" },
+      "timesheets": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "businessUnit": { "type": "string" },
+            "fromDate": { "type": "string", "format": "date" },
+            "toDate": { "type": "string", "format": "date" },
+            "submittedOn": { "type": "string", "format": "date" },
+            "totalHours": { "type": "number" },
+            "totalBillableHours": { "type": "number" },
+            "status": { "type": "string" },
+            "client": { "type": "string" },
+            "timesheetFrequency": { "type": "string" },
+            "timesheetNotes": { "type": "string" },
+            "supervisorApprovalStatus": { "type": "string" },
+            "approvedBy": { "type": "string" },
+            "approvedDate": { "type": "string", "format": "date" },
+            "rejectionReason": { "type": "string" }
+          },
+          "required": ["businessUnit", "fromDate", "toDate", "submittedOn", "totalHours", "totalBillableHours", "status", "client", "timesheetFrequency"]
+        }
+      },
+      "timesheetSubmission": {
+        "type": "object",
+        "properties": {
+          "submitTimesheetLink": { "type": "string", "format": "uri" },
+          "submissionDeadline": { "type": "string", "format": "date" },
+          "reminder": { "type": "boolean" }
+        }
+      }
+    },
+    "required": ["employeeName", "timesheets"]
+  }
